@@ -1,10 +1,25 @@
 <template>
-	<div class="flex h-screen w-screen bg-slate-100">
-		<div class="w-1/3 bg-white h-full shadow-xl">
+	<div class="flex h-screen w-screen bg-slate-100" style="flex-wrap: wrap">
+		<div class="w-full md:w-1/2 lg:w-1/3 bg-white h-full shadow-xl">
 			<div class="py-10 px-5 md:px-10">
 				<h1 class="text-4xl font-extrabold text-center mb-8">
 					<span class="text-gradient css-gradient">Gradient Text Generator</span>
 				</h1>
+
+				<div class="block md:hidden bg-slate-50 px-10 rounded-2xl overflow-hidden mb-8">
+					<h1 class="text-3xl py-10 font-extrabold text-center uppercase">
+						<span class="text-gradient sample" :style="`background: ${textGradientValue()}`"> {{ sampleText }} </span>
+					</h1>
+
+					<div class="-mx-10">
+						<button class="bg-slate-100 py-3 flex justify-center items-center w-full" @click="copyText()">
+							<clipboard-copy-icon class="h-6 w-6 text-gray-400 mr-2"></clipboard-copy-icon>
+
+							<span class="text-gray-400">{{ copyLabel }}</span>
+						</button>
+					</div>
+				</div>
+
 				<div class="mb-4">
 					<div class="text-xl font-bold mb-2 text-slate-500">Text</div>
 					<tailwind-input v-model="sampleText" class="mb-6"></tailwind-input>
@@ -49,10 +64,10 @@
 				</div>
 			</div>
 		</div>
-		<div class="w-2/3 h-full flex items-center">
-			<div class="xl:w-2/3 mx-auto">
+		<div class="hidden md:flex md:w-1/2 lg:w-2/3 md:h-full py-6 items-center">
+			<div class="xl:w-2/3 mx-auto px-6">
 				<div class="bg-white px-10 py-20 rounded-2xl shadow-lg">
-					<h1 class="text-6xl font-extrabold text-center uppercase">
+					<h1 class="text-4xl lg:text-6xl font-extrabold text-center uppercase">
 						<span class="text-gradient sample" :style="`background: ${textGradientValue()}`"> {{ sampleText }} </span>
 					</h1>
 				</div>
@@ -65,7 +80,7 @@
 						<button class="bg-slate-50 py-3 flex justify-center items-center w-full" @click="copyText()">
 							<clipboard-copy-icon class="h-6 w-6 text-gray-400 mr-2"></clipboard-copy-icon>
 
-							<span class="text-gray-400">Copy</span>
+							<span class="text-gray-400">{{ copyLabel }}</span>
 						</button>
 					</div>
 				</div>
@@ -104,10 +119,20 @@
 		`
 	}
 
+	const copyLabel = ref('Copy')
+
 	const copyText = () => {
 		const text = '-webkit-background-clip: text;' + '\n' + '-webkit-text-fill-color: transparent;' + '\n' + `background: ${textGradientValue()}`
 
 		navigator.clipboard.writeText(text)
+
+		copyLabel.value = 'Copied To clipboard!'
+
+		setTimeout(() => {
+			copyLabel.value = 'Copy'
+		}, 2000)
+
+		console.log(copyLabel.value)
 	}
 
 	const addRandomColor = () => {
