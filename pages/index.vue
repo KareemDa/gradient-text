@@ -1,6 +1,6 @@
 <template>
 	<div class="flex h-screen w-screen bg-slate-100" style="flex-wrap: wrap">
-		<div class="w-full md:w-1/2 lg:w-1/3 bg-white h-full shadow-xl">
+		<div class="w-full md:w-1/2 lg:w-1/3 bg-white h-full shadow-xl overflow-y-auto">
 			<div class="py-10 px-5 md:px-10">
 				<h1 class="text-4xl font-extrabold text-center mb-8">
 					<span class="text-gradient css-gradient">Gradient Text Generator</span>
@@ -169,10 +169,6 @@
 		transition: all 0.3s ease-in-out;
 	}
 
-	.button {
-		margin-top: 35px;
-	}
-
 	.flip-list-move {
 		transition: transform 0.5s;
 	}
@@ -183,5 +179,26 @@
 
 	.ghost {
 		opacity: 0.5;
+	}
+
+	div::-webkit-scrollbar,
+	main::-webkit-scrollbar,
+	ol::-webkit-scrollbar,
+	pre::-webkit-scrollbar,
+	span::-webkit-scrollbar,
+	ul::-webkit-scrollbar {
+		width: 14px;
+	}
+
+	div::-webkit-scrollbar-thumb,
+	main::-webkit-scrollbar-thumb,
+	ol::-webkit-scrollbar-thumb,
+	pre::-webkit-scrollbar-thumb,
+	span::-webkit-scrollbar-thumb,
+	ul::-webkit-scrollbar-thumb {
+		background-color: #eff2f5;
+		border: 4px solid rgba(0, 0, 0, 0);
+		border-radius: 9999px;
+		background-clip: padding-box;
 	}
 </style>
