@@ -64,7 +64,7 @@
 				</div>
 			</div>
 
-			<copyright-footer class="block md:none" />
+			<copyright-footer class="block md:hidden" />
 		</div>
 		<div class="hidden md:block md:w-1/2 lg:w-2/3 py-6 relative">
 			<div class="xl:w-2/3 flex justify-center flex-col h-full mx-auto px-6">
