@@ -77,7 +77,7 @@
 <script lang="ts" setup>
 	import draggable from 'vuedraggable'
 	import VSwatches from 'vue3-swatches'
-	import { PlusCircleIcon, TrashIcon, HandIcon, ClipboardCopyIcon } from '@heroicons/vue/outline'
+	import { PlusCircleIcon, TrashIcon, HandIcon, ClipboardCopyIcon } from '@heroicons/vue/outline/index.js'
 
 	const colors = ref(['#42d392', '#647eff'])
 
