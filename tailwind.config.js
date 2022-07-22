@@ -8,7 +8,16 @@ module.exports = {
 			mono: ['monospace', 'sans-serif']
 		},
 
-		extend: {}
+		extend: {
+			colors: {
+				dark: {
+					DEFAULT:'#292D3E',
+					800: '#222634',
+					900: '#1B1E2B',
+				},
+				primary: '#647EFF'
+			}
+		}
 	},
 	plugins: []
 }

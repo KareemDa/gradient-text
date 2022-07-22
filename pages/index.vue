@@ -12,10 +12,10 @@
 					</h1>
 
 					<div class="-mx-10">
-						<button class="bg-slate-100 py-3 flex justify-center items-center w-full" @click="copyText()">
-							<clipboard-copy-icon class="h-6 w-6 text-gray-400 mr-2"></clipboard-copy-icon>
+						<button class="py-3 flex bg-dark justify-center items-center w-full transition-all" :class="copied ? 'bg-primary text-white' : 'bg-dark-800 text-gray-400'" @click="copyText()">
+							<clipboard-copy-icon class="h-6 w-6 mr-2"></clipboard-copy-icon>
 
-							<span class="text-gray-400">{{ copyLabel }}</span>
+							<span>{{ copyLabel }}</span>
 						</button>
 					</div>
 				</div>
@@ -72,15 +72,15 @@
 					</h1>
 				</div>
 
-				<div class="bg-white overflow-hidden rounded-xl shadow-lg mt-8 px-10">
+				<div class="bg-dark overflow-hidden rounded-xl shadow-lg mt-8 px-10">
 					<div class="py-10">
-						<div class="text-gray-500 font-mono" v-html="textGradientCSS()"></div>
+						<div class="text-gray-400 font-mono" v-html="textGradientCSS()"></div>
 					</div>
 					<div class="-mx-10">
-						<button class="bg-slate-50 py-3 flex justify-center items-center w-full" @click="copyText()">
-							<clipboard-copy-icon class="h-6 w-6 text-gray-400 mr-2"></clipboard-copy-icon>
+						<button class="py-3 flex hover:bg-dark-900 justify-center items-center w-full transition-all" :class="copied ? 'bg-primary hover:bg-primary text-white' : 'bg-dark-800 text-gray-400'" @click="copyText()">
+							<clipboard-copy-icon class="h-6 w-6 mr-2"></clipboard-copy-icon>
 
-							<span class="text-gray-400">{{ copyLabel }}</span>
+							<span>{{ copyLabel }}</span>
 						</button>
 					</div>
 				</div>
@@ -113,26 +113,31 @@
 
 	const textGradientCSS = () => {
 		return `
-			-webkit-background-clip: text; <br />
-			-webkit-text-fill-color: transparent; <br />
-			background: ${textGradientValue()}
+			<span style="color: #FFCC00">-webkit-background-clip</span>: text; <br />
+			<span style="color: #FFCC00">-webkit-text-fill-color</span>: transparent; <br />
+			<span style="color: #FFCC00">background</span>: 
+				<span style='color: #82AAFF'>linear-gradient</span>(
+					<span style="color: #F78C6C">${angle.value}deg</span>, ${colors.value.join(', ')}
+				)
 		`
 	}
 
-	const copyLabel = ref('Copy')
+	const copied = ref(false)
+
+	const copyLabel = computed(() => {
+		return copied.value ? 'Copied to clipboard!' : 'Copy'
+	})
 
 	const copyText = () => {
 		const text = '-webkit-background-clip: text;' + '\n' + '-webkit-text-fill-color: transparent;' + '\n' + `background: ${textGradientValue()}`
 
 		navigator.clipboard.writeText(text)
 
-		copyLabel.value = 'Copied To clipboard!'
+		copied.value = true
 
 		setTimeout(() => {
-			copyLabel.value = 'Copy'
+			copied.value = false
 		}, 2000)
-
-		console.log(copyLabel.value)
 	}
 
 	const addRandomColor = () => {
