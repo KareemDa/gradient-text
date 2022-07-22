@@ -4,7 +4,8 @@ module.exports = {
 		// change font-family to Lato
 		fontFamily: {
 			sans: ['Lato', 'sans-serif'],
-			serif: ['Lato', 'sans-serif']
+			serif: ['Lato', 'sans-serif'],
+			mono: ['monospace', 'sans-serif']
 		},
 
 		extend: {}

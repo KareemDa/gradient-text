@@ -1,5 +1,5 @@
 {
-  "private": true,
+  "license": "MIT",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -14,6 +14,7 @@
   "dependencies": {
     "@heroicons/vue": "^1.0.6",
     "vue-color-kit": "^1.0.5",
+    "vue3-swatches": "^1.0.10",
     "vuedraggable": "^4.1.0"
   }
 }
