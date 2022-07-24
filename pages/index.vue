@@ -66,7 +66,7 @@
 
 			<copyright-footer class="block md:hidden" />
 		</div>
-		<div class="hidden md:block md:w-1/2 lg:w-2/3 py-6 relative">
+		<div class="hidden md:block md:w-1/2 lg:w-2/3 py-16 relative">
 			<div class="xl:w-2/3 flex justify-center flex-col h-full mx-auto px-6">
 				<div class="bg-white px-10 py-20 rounded-2xl shadow-lg">
 					<h1 class="text-4xl lg:text-6xl font-extrabold text-center uppercase">
