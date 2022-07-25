@@ -8,7 +8,7 @@ export default defineNuxtConfig({
 		head: {
 			title: 'CSS Gradient Text Generator',
 			link: [
-				{ rel: "icon", type: "image/x-icon", href: "favicon.ico?v=2" },
+				{ rel: 'icon', type: 'image/x-icon', href: 'favicon.ico?v=2' },
 				{ rel: 'preconnect', href: 'https://fonts.googleapis.com' },
 				{ rel: 'preconnect', href: 'https://fonts.gstatic.com' },
 				{
@@ -18,7 +18,7 @@ export default defineNuxtConfig({
 			],
 			meta: [
 				{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
-				{ name: "theme-color", content: "#42D392" },
+				{ name: 'theme-color', content: '#42D392' },
 				{ name: 'title', content: 'CSS gradient text | free online gradient text generator' },
 				{ name: 'description', content: 'using CSS gradient text, you can generate gradient text using CSS, modify it (change colors - angle), then simply copy-paste it into your code' },
 				{ property: 'og:type', content: 'website' },
@@ -31,6 +31,10 @@ export default defineNuxtConfig({
 				{ property: 'twitter:title', content: 'CSS gradient text | free online gradient text generator' },
 				{ property: 'twitter:description', content: 'using CSS gradient text, you can generate gradient text using CSS, modify it (change colors - angle), then simply copy-paste it into your code' },
 				{ property: 'twitter:image', content: 'https://text-gradient.vercel.app/meta-image.png' }
+			],
+			script: [
+				{ src: 'https://www.googletagmanager.com/gtag/js?id=G-8Q697XB3VD', async: true }, 
+				{ src: '/js/analytics.js' }
 			]
 		}
 	}
