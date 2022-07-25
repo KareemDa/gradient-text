@@ -1,42 +1,17 @@
-# Nuxt 3 Minimal Starter
+![image](public/meta-image.png)
 
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+# CSS GRADIENT GENERATOR
 
-## Setup
+🔗 checkout: live website](https://www.cssgradienttext.com/)
 
-Make sure to install the dependencies:
+CSS gradient text is a free online gradient text generator.
 
-```bash
-# yarn
-yarn install
+It helps you to generate gradient text using CSS, modify it (change colors - angle), then simply copy-paste it into your code
 
-# npm
-npm install
+## Framework
 
-# pnpm
-pnpm install --shamefully-hoist
-```
+the project is built using [nuxt 3](https://v3.nuxtjs.org/), [tailwindcss](https://tailwindcss.com/). and deployed with [vercel](https://www.vercel.com/).
 
-## Development Server
 
-Start the development server on http://localhost:3000
-
-```bash
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.
+## Want to help ? 
+feel free to open a discussion to report a bug, or request a new feature. Or make a PR!
