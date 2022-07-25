@@ -2,7 +2,7 @@
 
 # CSS GRADIENT GENERATOR
 
-🔗 checkout: live website](https://www.cssgradienttext.com/)
+🔗 checkout: [live website](https://www.cssgradienttext.com/)
 
 CSS gradient text is a free online gradient text generator.
 
