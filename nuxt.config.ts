@@ -21,6 +21,7 @@ export default defineNuxtConfig({
 				{ name: 'theme-color', content: '#42D392' },
 				{ name: 'title', content: 'CSS gradient text | free online gradient text generator' },
 				{ name: 'description', content: 'using CSS gradient text, you can generate gradient text using CSS, modify it (change colors - angle), then simply copy-paste it into your code' },
+				{ name: "google-site-verification", content: "WO17M4SyaKL3Lh5F5EMqGM8lznTmezZJ4txfWnmIeTE" },
 				{ property: 'og:type', content: 'website' },
 				{ property: 'og:url', content: 'https://text-gradient.vercel.app' },
 				{ property: 'og:title', content: 'CSS gradient text | free online gradient text generator' },
@@ -30,7 +31,7 @@ export default defineNuxtConfig({
 				{ property: 'twitter:url', content: 'https://text-gradient.vercel.app' },
 				{ property: 'twitter:title', content: 'CSS gradient text | free online gradient text generator' },
 				{ property: 'twitter:description', content: 'using CSS gradient text, you can generate gradient text using CSS, modify it (change colors - angle), then simply copy-paste it into your code' },
-				{ property: 'twitter:image', content: 'https://text-gradient.vercel.app/meta-image.png' }
+				{ property: 'twitter:image', content: 'https://text-gradient.vercel.app/meta-image.png' },
 			],
 			script: [
 				{ src: 'https://www.googletagmanager.com/gtag/js?id=G-8Q697XB3VD', async: true }, 
