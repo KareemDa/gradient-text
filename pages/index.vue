@@ -13,14 +13,14 @@
         <div
           class="block md:hidden bg-slate-50 px-10 rounded-2xl overflow-hidden mb-8"
         >
-          <h1 class="text-3xl py-10 font-black text-center uppercase">
+          <h2 class="text-3xl py-10 font-black text-center uppercase">
             <span
               class="text-gradient sample"
               :style="`background: ${textGradientValue()}`"
             >
               {{ sampleText }}
             </span>
-          </h1>
+          </h2>
 
           <div class="-mx-10">
             <button
@@ -134,14 +134,14 @@
     <div class="hidden md:block md:w-1/2 lg:w-2/3 py-16 relative">
       <div class="xl:w-2/3 flex justify-center flex-col h-full mx-auto px-6">
         <div class="bg-white px-10 py-20 rounded-2xl shadow-lg">
-          <h1 class="text-4xl lg:text-6xl font-black text-center uppercase">
+          <h2 class="text-4xl lg:text-6xl font-black text-center uppercase">
             <span
               class="text-gradient sample"
               :style="`background: ${textGradientValue()}`"
             >
               {{ sampleText }}
             </span>
-          </h1>
+          </h2>
         </div>
 
         <div class="bg-dark overflow-hidden rounded-xl shadow-lg mt-8 px-10">
