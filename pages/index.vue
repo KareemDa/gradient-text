@@ -4,7 +4,7 @@
       class="w-full md:w-1/2 lg:w-1/3 bg-white h-full shadow-xl overflow-y-auto"
     >
       <div class="py-10 px-5 md:px-10">
-        <h1 class="text-4xl font-extrabold text-center mb-8">
+        <h1 class="text-4xl font-black text-center mb-8">
           <span class="text-gradient css-gradient">
             Gradient Text Generator
           </span>
@@ -13,7 +13,7 @@
         <div
           class="block md:hidden bg-slate-50 px-10 rounded-2xl overflow-hidden mb-8"
         >
-          <h1 class="text-3xl py-10 font-extrabold text-center uppercase">
+          <h1 class="text-3xl py-10 font-black text-center uppercase">
             <span
               class="text-gradient sample"
               :style="`background: ${textGradientValue()}`"
@@ -39,21 +39,25 @@
         </div>
 
         <div class="mb-4">
-          <div class="text-xl font-bold mb-2 text-slate-500">Text</div>
+          <label class="text-xl font-bold text-slate-500">
+            <div class="mb-2">Text</div>
 
-          <tailwind-input v-model="sampleText" class="mb-6"></tailwind-input>
+            <tailwind-input v-model="sampleText" class="mb-6"></tailwind-input>
+          </label>
 
-          <div class="text-xl font-bold text-slate-500 -mb-2">Angle</div>
+          <label class="text-xl font-bold text-slate-500">
+            <div class="-mb-2">Angle</div>
 
-          <div class="flex items-center mb-6">
-            <tailwind-range-slider v-model="angle" class="mr-4" />
+            <div class="flex items-center mb-6">
+              <tailwind-range-slider v-model="angle" class="mr-4" />
 
-            <div
-              class="h-12 w-16 rounded-lg flex items-center justify-center font-bold bg-slate-100 text-slate-500 border-0 outline-0"
-            >
-              {{ angle }}
+              <div
+                class="h-12 w-16 rounded-lg flex items-center justify-center font-bold bg-slate-100 text-slate-500 border-0 outline-0"
+              >
+                {{ angle }}
+              </div>
             </div>
-          </div>
+          </label>
 
           <div class="text-xl font-bold mb-2 text-slate-500">Colors</div>
 
@@ -130,7 +134,7 @@
     <div class="hidden md:block md:w-1/2 lg:w-2/3 py-16 relative">
       <div class="xl:w-2/3 flex justify-center flex-col h-full mx-auto px-6">
         <div class="bg-white px-10 py-20 rounded-2xl shadow-lg">
-          <h1 class="text-4xl lg:text-6xl font-extrabold text-center uppercase">
+          <h1 class="text-4xl lg:text-6xl font-black text-center uppercase">
             <span
               class="text-gradient sample"
               :style="`background: ${textGradientValue()}`"
