@@ -4,6 +4,8 @@ export default defineNuxtConfig({
 
   app: {
     head: {
+      htmlAttrs: { lang: "en" },
+
       title: "CSS gradient text | free online gradient text generator",
       link: [
         { rel: "icon", type: "image/x-icon", href: "favicon.ico?v=2" },
