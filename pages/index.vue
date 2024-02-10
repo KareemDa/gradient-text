@@ -74,22 +74,24 @@
                   ></hand-raised-icon>
                 </button>
 
-                <v-swatches
-                  class="flex-grow"
-                  v-model="colors[index]"
-                  show-fallback
-                  fallback-input-type="color"
-                  popover-x="left"
-                >
-                  <template #trigger>
-                    <button
-                      class="flex-grow color-input h-14 rounded-lg shadow-xl mx-6 text-white font-bold"
-                      :style="`background-color: ${element};`"
-                    >
-                      {{ element.toUpperCase() }}
-                    </button>
-                  </template>
-                </v-swatches>
+                <client-only>
+                  <v-swatches
+                    class="flex-grow"
+                    v-model="colors[index]"
+                    show-fallback
+                    fallback-input-type="color"
+                    popover-x="left"
+                  >
+                    <template #trigger>
+                      <button
+                        class="flex-grow color-input h-14 rounded-lg shadow-xl mx-6 text-white font-bold"
+                        :style="`background-color: ${element};`"
+                      >
+                        {{ element.toUpperCase() }}
+                      </button>
+                    </template>
+                  </v-swatches>
+                </client-only>
 
                 <button
                   aria-label="Delete"
