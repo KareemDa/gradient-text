@@ -246,10 +246,17 @@ const addRandomColor = () => {
 
 useSchemaOrg([
   defineSoftwareApp({
-    type: "WebApplication",
     name: "CSS gradient text | free online gradient text generator",
     applicationCategory: "DeveloperApplication",
     operatingSystem: "Web",
+    offers: {
+      price: "0",
+      priceCurrency: "USD",
+    },
+    aggregateRating: {
+      ratingValue: "4.8",
+      reviewCount: "1500",
+    },
   }),
 
   defineHowTo({
