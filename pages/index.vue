@@ -39,21 +39,25 @@
         </div>
 
         <div class="mb-4">
-          <div class="text-xl font-bold mb-2 text-slate-500">Text</div>
+          <label class="text-xl font-bold text-slate-500">
+            <div class="mb-2">Text</div>
 
-          <tailwind-input v-model="sampleText" class="mb-6"></tailwind-input>
+            <tailwind-input v-model="sampleText" class="mb-6"></tailwind-input>
+          </label>
 
-          <div class="text-xl font-bold text-slate-500 -mb-2">Angle</div>
+          <label class="text-xl font-bold text-slate-500">
+            <div class="-mb-2">Angle</div>
 
-          <div class="flex items-center mb-6">
-            <tailwind-range-slider v-model="angle" class="mr-4" />
+            <div class="flex items-center mb-6">
+              <tailwind-range-slider v-model="angle" class="mr-4" />
 
-            <div
-              class="h-12 w-16 rounded-lg flex items-center justify-center font-bold bg-slate-100 text-slate-500 border-0 outline-0"
-            >
-              {{ angle }}
+              <div
+                class="h-12 w-16 rounded-lg flex items-center justify-center font-bold bg-slate-100 text-slate-500 border-0 outline-0"
+              >
+                {{ angle }}
+              </div>
             </div>
-          </div>
+          </label>
 
           <div class="text-xl font-bold mb-2 text-slate-500">Colors</div>
 
