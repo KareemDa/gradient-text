@@ -131,6 +131,7 @@
 
       <copyright-footer class="block md:hidden" />
     </div>
+
     <div class="hidden md:block md:w-1/2 lg:w-2/3 py-16 relative">
       <div class="xl:w-2/3 flex justify-center flex-col h-full mx-auto px-6">
         <div class="bg-white px-10 py-20 rounded-2xl shadow-lg">
@@ -242,6 +243,69 @@ const addRandomColor = () => {
   const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
   colors.value.push(randomColor);
 };
+
+useSchemaOrg([
+  defineSoftwareApp({
+    type: "WebApplication",
+    name: "CSS gradient text | free online gradient text generator",
+    applicationCategory: "DeveloperApplication",
+    operatingSystem: "Web",
+  }),
+
+  defineHowTo({
+    name: "How to Generate CSS Gradient Text",
+    description:
+      "Follow these steps to create beautiful CSS gradient text for your web designs.",
+    estimatedCost: "Free",
+    tool: "CSS Gradient Text Generator tool",
+    totalTime: "PT1M",
+
+    step: [
+      {
+        text: "Click the 'Add More' button to create a new color for your gradient.",
+      },
+      {
+        text: "Click on the color to change it. You can choose from predefined colors or add your custom one.",
+      },
+      {
+        text: "Rearrange the colors by dragging the icon on the left of each color.",
+      },
+      {
+        text: "Delete any color by clicking on the delete icon on the right of the color.",
+      },
+      {
+        text: "The result on the text is automatically updated to reflect your gradient choices.",
+      },
+      {
+        text: "Finally, copy the CSS code generated for your gradient by clicking the 'Copy CSS' button.",
+      },
+    ],
+  }),
+
+  defineQuestion({
+    name: "How do I add a new color to my gradient?",
+    answer:
+      "Click the 'Add More' button to introduce a new color to your gradient. You can then customize this color as needed.",
+  }),
+
+  defineQuestion({
+    name: "Can I rearrange the colors in my gradient?",
+    answer:
+      "Yes, colors can be rearranged by dragging the icon on the left of each color entry, allowing you to customize the order of colors in your gradient.",
+  }),
+
+  defineQuestion({
+    name: "How do I delete a color from my gradient?",
+    answer:
+      "To remove a color, click on the delete icon located on the right side of the color. This action will delete the color from your gradient configuration.",
+  }),
+
+  defineQuestion({
+    name: "How can I copy the CSS code for the gradient?",
+    answer:
+      "Once you're satisfied with your gradient, click the 'Copy CSS' button to copy the generated CSS code to your clipboard, ready to be pasted into your project.",
+  }),
+]);
 </script>
 
 <style>

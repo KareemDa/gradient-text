@@ -1,12 +1,18 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-  modules: ["@nuxtjs/tailwindcss", "vue3-swatches/nuxt"],
+  devtools: { enabled: true },
+  modules: ["@nuxtjs/tailwindcss", "vue3-swatches/nuxt", "@nuxtjs/seo"],
+
+  site: {
+    url: "https://cssgradienttext.com",
+    name: "CSS gradient text | free online gradient text generator",
+    description:
+      "Using CSS gradient text, you can generate beautiful gradient text using CSS, modify it (change colors - angle), then simply copy-paste it into your code",
+    defaultLocale: "en",
+  },
 
   app: {
     head: {
-      htmlAttrs: { lang: "en" },
-
-      title: "CSS gradient text | free online gradient text generator",
       link: [
         { rel: "icon", type: "image/x-icon", href: "favicon.ico?v=2" },
         { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -23,40 +29,19 @@ export default defineNuxtConfig({
         },
       ],
       meta: [
-        { name: "viewport", content: "width=device-width, initial-scale=1" },
         { name: "theme-color", content: "#42D392" },
-        {
-          name: "title",
-          content: "CSS gradient text | free online gradient text generator",
-        },
-        {
-          name: "description",
-          content:
-            "Using CSS gradient text, you can generate beautiful gradient text using CSS, modify it (change colors - angle), then simply copy-paste it into your code",
-        },
         {
           name: "google-site-verification",
           content: "WO17M4SyaKL3Lh5F5EMqGM8lznTmezZJ4txfWnmIeTE",
         },
-        { property: "og:type", content: "website" },
-        { property: "og:url", content: "https://text-gradient.vercel.app" },
-        {
-          property: "og:title",
-          content: "CSS gradient text | free online gradient text generator",
-        },
-        {
-          property: "og:description",
-          content:
-            "Using CSS gradient text, you can generate beautiful gradient text using CSS, modify it (change colors - angle), then simply copy-paste it into your code",
-        },
         {
           property: "og:image",
-          content: "https://text-gradient.vercel.app/meta-image.png",
+          content: "https://cssgradienttext.com/meta-image.png",
         },
         { property: "twitter:card", content: "summary_large_image" },
         {
           property: "twitter:url",
-          content: "https://text-gradient.vercel.app",
+          content: "https://cssgradienttext.com",
         },
         {
           property: "twitter:title",
@@ -69,7 +54,7 @@ export default defineNuxtConfig({
         },
         {
           property: "twitter:image",
-          content: "https://text-gradient.vercel.app/meta-image.png",
+          content: "https://cssgradienttext.com/meta-image.png",
         },
       ],
       script: [

@@ -1,4 +1,0 @@
-Sitemap: https://www.cssgradienttext.com/sitemap.xml
-
-User-agent: *
-Disallow: *cdn
