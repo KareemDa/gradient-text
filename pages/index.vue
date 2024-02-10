@@ -29,18 +29,21 @@
             </span>
           </h2>
 
-          <div class="-mx-10">
+          <div class="grid grid-cols-2 -mx-10">
             <button
-              aria-label="Copy"
-              class="py-3 flex bg-dark justify-center items-center w-full transition-all"
-              :class="
-                copied ? 'bg-primary text-white' : 'bg-dark-800 text-gray-400'
-              "
+              aria-label="Copy CSS"
+              class="py-3 flex bg-dark text-gray-400 justify-center items-center w-full transition-all"
               @click="copyCSS()"
             >
-              <clipboard-icon class="h-6 w-6 mr-2"></clipboard-icon>
+              <span>Copy CSS</span>
+            </button>
 
-              <span>{{ copyCSSLabel }}</span>
+            <button
+              aria-label="Copy HTML"
+              class="py-3 flex bg-dark text-gray-400 justify-center items-center w-full transition-all"
+              @click="copyElement()"
+            >
+              <span>Copy HTML</span>
             </button>
           </div>
         </div>
