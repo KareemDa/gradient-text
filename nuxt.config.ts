@@ -57,13 +57,6 @@ export default defineNuxtConfig({
           content: "https://cssgradienttext.com/meta-image.png",
         },
       ],
-      script: [
-        {
-          src: "https://www.googletagmanager.com/gtag/js?id=G-8Q697XB3VD",
-          async: true,
-        },
-        { src: "/js/analytics.js" },
-      ],
     },
   },
 });

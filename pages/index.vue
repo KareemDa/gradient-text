@@ -23,7 +23,7 @@
           <h2 class="text-3xl py-10 font-black text-center uppercase">
             <span
               class="text-gradient sample"
-              :style="`background: ${textGradientValue()}`"
+              :style="`background: ${textGradientValue}`"
             >
               {{ sampleText }}
             </span>
@@ -148,7 +148,7 @@
           <h2 class="text-4xl lg:text-6xl font-black text-center uppercase">
             <span
               class="text-gradient sample"
-              :style="`background: ${textGradientValue()}`"
+              :style="`background: ${textGradientValue}`"
             >
               {{ sampleText }}
             </span>
@@ -158,7 +158,7 @@
         <div class="bg-dark overflow-hidden rounded-xl shadow-lg mt-8 px-10">
           <div
             class="text-gray-400 font-mono flex flex-col py-10"
-            v-html="textGradientCSS()"
+            v-html="textGradientCSS"
           ></div>
 
           <div class="grid grid-cols-2 -mx-10">
@@ -200,6 +200,7 @@
 
 <script lang="ts" setup>
 import draggable from "vuedraggable";
+import { useGtag } from "vue-gtag-next";
 
 import {
   PlusCircleIcon,
@@ -208,10 +209,10 @@ import {
   ClipboardIcon,
 } from "@heroicons/vue/24/outline";
 
+const { event } = useGtag();
+
 const colors = ref(["#42d392", "#647eff"]);
-
 const angle = ref(135);
-
 const sampleText = ref("sample text");
 
 const dragOptions = ref({
@@ -221,11 +222,11 @@ const dragOptions = ref({
   ghostClass: "ghost",
 });
 
-const textGradientValue = () => {
+const textGradientValue = computed(() => {
   return `linear-gradient(${angle.value}deg, ${colors.value.join(", ")})`;
-};
+});
 
-const textGradientCSS = () => {
+const textGradientCSS = computed(() => {
   return `
       <span>
 
@@ -242,13 +243,9 @@ const textGradientCSS = () => {
         <span style="color: #FFCC00">-webkit-text-fill-color</span>: transparent; <br />
       </span>
 		`;
-};
+});
 
 const copied = ref(false);
-
-const copyCSSLabel = computed(() => {
-  return copied.value ? "Copied to clipboard!" : "Copy CSS";
-});
 
 const copyCSS = () => {
   const text =
@@ -256,11 +253,13 @@ const copyCSS = () => {
     "\n" +
     "-webkit-text-fill-color: transparent;" +
     "\n" +
-    `background: ${textGradientValue()}`;
+    `background: ${textGradientValue.value}`;
 
   navigator.clipboard.writeText(text);
 
   copied.value = true;
+
+  event("click:copy_css");
 
   setTimeout(() => {
     copied.value = false;
@@ -269,8 +268,8 @@ const copyCSS = () => {
 
 const copyElement = () => {
   const gradientCSS = `-webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background: ${textGradientValue()};`;
+    -webkit-text-fill-color: transparent;
+    background: ${textGradientValue.value};`;
 
   // HTML element example - replace 'Your Text Here' with your specific element content
   const htmlElement = `<span style="${gradientCSS}">Your Text Here</span>`;
@@ -279,13 +278,18 @@ background: ${textGradientValue()};`;
 
   copied.value = true;
 
+  event("click:copy_html");
+
   setTimeout(() => {
     copied.value = false;
   }, 2000);
 };
+
 const addRandomColor = () => {
   const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
   colors.value.push(randomColor);
+
+  event("click:add_color");
 };
 
 useSchemaOrg([
