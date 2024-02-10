@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     url: "https://cssgradienttext.com",
     name: "CSS gradient text | free online gradient text generator",
     description:
-      "Using CSS gradient text, you can generate beautiful gradient text using CSS, modify it (change colors - angle), then simply copy-paste it into your code",
+      "Enhance your web projects with our CSS Gradient Text Generator. Easily create stunning gradient texts, adjust colors and angles, and now with a single click, copy either CSS or HTML styled code directly into your project.",
     defaultLocale: "en",
   },
 
@@ -50,7 +50,7 @@ export default defineNuxtConfig({
         {
           property: "twitter:description",
           content:
-            "Using CSS gradient text, you can generate beautiful gradient text using CSS, modify it (change colors - angle), then simply copy-paste it into your code",
+            "Enhance your web projects with our CSS Gradient Text Generator. Easily create stunning gradient texts, adjust colors and angles, and now with a single click, copy either CSS or HTML styled code directly into your project.",
         },
         {
           property: "twitter:image",

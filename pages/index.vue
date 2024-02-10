@@ -4,11 +4,18 @@
       class="w-full md:w-1/2 lg:w-1/3 bg-white h-full shadow-xl overflow-y-auto"
     >
       <div class="py-10 px-5 md:px-10">
-        <h1 class="text-4xl font-black text-center mb-8">
-          <span class="text-gradient css-gradient">
-            Gradient Text Generator
-          </span>
+        <h1
+          class="text-4xl font-black text-center text-gradient css-gradient mb-2"
+        >
+          Gradient Text Generator
         </h1>
+
+        <div class="text-slate-500 text-center mb-8">
+          Instantly create and embed stunning gradient texts using CSS or HTML.
+          <br />
+          Simple, efficient, and perfect for developers looking to enhance their
+          projects.
+        </div>
 
         <div
           class="block md:hidden bg-slate-50 px-10 rounded-2xl overflow-hidden mb-8"
@@ -29,11 +36,11 @@
               :class="
                 copied ? 'bg-primary text-white' : 'bg-dark-800 text-gray-400'
               "
-              @click="copyText()"
+              @click="copyCSS()"
             >
               <clipboard-icon class="h-6 w-6 mr-2"></clipboard-icon>
 
-              <span>{{ copyLabel }}</span>
+              <span>{{ copyCSSLabel }}</span>
             </button>
           </div>
         </div>
@@ -146,26 +153,30 @@
         </div>
 
         <div class="bg-dark overflow-hidden rounded-xl shadow-lg mt-8 px-10">
-          <div class="py-10">
-            <div
-              class="text-gray-400 font-mono"
-              v-html="textGradientCSS()"
-            ></div>
-          </div>
-          <div class="-mx-10">
+          <div
+            class="text-gray-400 font-mono flex flex-col py-10"
+            v-html="textGradientCSS()"
+          ></div>
+
+          <div class="grid grid-cols-2 -mx-10">
             <button
-              aria-label="Copy Code"
-              class="py-3 flex hover:bg-dark-900 justify-center items-center w-full transition-all"
-              :class="
-                copied
-                  ? 'bg-primary hover:bg-primary text-white'
-                  : 'bg-dark-800 text-gray-400'
-              "
-              @click="copyText()"
+              aria-label="Copy CSS Code"
+              class="py-3 flex bg-dark-800 text-gray-400 hover:bg-dark-900 justify-center items-center w-full transition-all"
+              @click="copyCSS()"
             >
               <clipboard-icon class="h-6 w-6 mr-2"></clipboard-icon>
 
-              <span>{{ copyLabel }}</span>
+              <span>Copy CSS</span>
+            </button>
+
+            <button
+              aria-label="Copy HTML & CSS"
+              class="py-3 flex bg-dark-800 text-gray-400 hover:bg-dark-900 justify-center border-l border-l-dark-900 items-center w-full transition-all"
+              @click="copyElement()"
+            >
+              <clipboard-icon class="h-6 w-6 mr-2"></clipboard-icon>
+
+              <span>Copy HTML</span>
             </button>
           </div>
         </div>
@@ -173,6 +184,14 @@
 
       <copyright-footer />
     </div>
+
+    <transition name="fade">
+      <div v-if="copied" class="absolute bottom-16 right-4">
+        <div class="bg-primary text-white font-bold rounded-lg py-2 px-12">
+          Copied To Clipboard!
+        </div>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -205,24 +224,30 @@ const textGradientValue = () => {
 
 const textGradientCSS = () => {
   return `
+      <span>
+
 			<span style="color: #FFCC00">background</span>:
-				<span style='color: #82AAFF'>linear-gradient</span>(
-					<span style="color: #F78C6C">${angle.value}deg</span>, ${colors.value.join(
-    ", "
-  )}
-				)
-			<span style="color: #FFCC00">-webkit-background-clip</span>: text; <br />
-			<span style="color: #FFCC00">-webkit-text-fill-color</span>: transparent; <br />
+				<span style='color: #82AAFF'>linear-gradient</span>
+        (<span style="color: #F78C6C">${
+          angle.value
+        }deg</span>, ${colors.value.join(", ")})
+      </span>
+      <span>
+        <span style="color: #FFCC00">-webkit-background-clip</span>: text; <br />
+      </span>
+      <span>
+        <span style="color: #FFCC00">-webkit-text-fill-color</span>: transparent; <br />
+      </span>
 		`;
 };
 
 const copied = ref(false);
 
-const copyLabel = computed(() => {
-  return copied.value ? "Copied to clipboard!" : "Copy";
+const copyCSSLabel = computed(() => {
+  return copied.value ? "Copied to clipboard!" : "Copy CSS";
 });
 
-const copyText = () => {
+const copyCSS = () => {
   const text =
     "-webkit-background-clip: text;" +
     "\n" +
@@ -239,6 +264,22 @@ const copyText = () => {
   }, 2000);
 };
 
+const copyElement = () => {
+  const gradientCSS = `-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background: ${textGradientValue()};`;
+
+  // HTML element example - replace 'Your Text Here' with your specific element content
+  const htmlElement = `<span style="${gradientCSS}">Your Text Here</span>`;
+
+  navigator.clipboard.writeText(htmlElement);
+
+  copied.value = true;
+
+  setTimeout(() => {
+    copied.value = false;
+  }, 2000);
+};
 const addRandomColor = () => {
   const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
   colors.value.push(randomColor);
@@ -308,9 +349,9 @@ useSchemaOrg([
   }),
 
   defineQuestion({
-    name: "How can I copy the CSS code for the gradient?",
+    name: "How can I copy the gradient as CSS or HTML?",
     answer:
-      "Once you're satisfied with your gradient, click the 'Copy CSS' button to copy the generated CSS code to your clipboard, ready to be pasted into your project.",
+      "After customizing your gradient, you have two options: Click the 'Copy CSS' button to copy the CSS code, or use the 'Copy HTML' button to get the HTML with inline styles. Both options place the code on your clipboard, ready for use in your project.",
   }),
 ]);
 </script>
@@ -365,5 +406,16 @@ ul::-webkit-scrollbar-thumb {
   border: 4px solid rgba(0, 0, 0, 0);
   border-radius: 9999px;
   background-clip: padding-box;
+}
+
+/* we will explain what these classes do next! */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.1s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
